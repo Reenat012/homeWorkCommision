@@ -29,10 +29,10 @@ fun calcCommission(typeCard: String = "VK Pay", sumRemittanceMonthAgo: Int = 0, 
         if (isExceedLimitMonth(typeCard, sumRemittanceMonthAgo, sumRemittanceNew)) {
             when (typeCard) {
                 "MasterCard", "Maestro" -> if ((sumRemittanceMonthAgo + sumRemittanceNew) in 300..75_000) 0
-                else (sumRemittanceNew * 0.06).toInt() + 20
+                else (sumRemittanceNew * 0.006).toInt() + 20
 
                 "Visa", "Мир" -> if ((sumRemittanceNew * 0.75) < 35) 35
-                else (sumRemittanceNew * 0.75).toInt()
+                else (sumRemittanceNew * 0.0075).toInt()
 
                 else -> 0
             }
